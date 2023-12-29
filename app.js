@@ -3,8 +3,8 @@ import path from "path";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import taskController from "./controllers/taskController";
-import errorController from "./controllers/errorController";
+import taskController from "./controllers/tasksController.js";
+import errorController from "./controllers/errorsController.js";
 
 //const __dirname = path.dirname(new URL(import.meta.url)patname);
 const __dirname = path.resolve();
@@ -15,6 +15,9 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());

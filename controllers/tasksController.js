@@ -4,7 +4,9 @@ let tasks = [
   { id: 3, name: "Task 3", completed: false },
 ];
 
-const getAllTasks = (req, res) => {};
+const getAllTasks = (req, res) => {
+  res.render("index", { title: "lista de tareas", tasks });
+};
 
 const getAddTaskForm = (req, res) => {};
 
